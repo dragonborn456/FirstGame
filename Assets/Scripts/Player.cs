@@ -5,8 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    // CONSTANTS
+    // VARIABLES
     [SerializeField] private float moveSpeed = 7f;
+
+    private bool isWalking;
+
 
     // Update is called once per frame
     private void Update()
@@ -38,8 +41,17 @@ public class Player : MonoBehaviour
 
         transform.position += moveDir * moveSpeed * Time.deltaTime;
 
+        // Return player walking status
+        isWalking = moveDir != Vector3.zero;
+
         // Rotate the object based on the move direction
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+    }
+
+    public bool IsWalking()
+	{
+        return isWalking;
+
     }
 }
