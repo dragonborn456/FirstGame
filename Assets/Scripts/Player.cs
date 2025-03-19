@@ -8,13 +8,39 @@ public class Player : MonoBehaviour
     // VARIABLES
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
+    [SerializeField] private LayerMask countersLayerMasks;
 
     private bool isWalking;
     private Vector3 lastInteractDir;
 
+	private void Start()
+	{
+		gameInput.OnInteractAction += GameInput_OnInteractAction;
+	}
 
-    // Update is called once per frame
-    private void Update()
+	private void GameInput_OnInteractAction(object sender, System.EventArgs e)
+	{
+        float interactDistance = 2f;
+
+        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+
+        // Save latest move direction when stopped.
+        if (moveDir != Vector3.zero) lastInteractDir = moveDir;
+
+        // Check object interaction
+        if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMasks))
+        {
+            if (raycastHit.transform.TryGetComponent(out ClearCounter clearcounter))
+            {
+                // Clear counter available
+                clearcounter.Interact();
+            }
+        }
+    }
+
+	// Update is called once per frame
+	private void Update()
     {
         HandleMovement();
         HandleINteractions();
@@ -36,13 +62,13 @@ public class Player : MonoBehaviour
         // Save latest move direction when stopped.
         if (moveDir != Vector3.zero) lastInteractDir = moveDir;
 
-        if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance))
+        // Check object interaction
+        if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMasks))
 		{
-            Debug.Log(raycastHit.transform);
-		}
-		else
-		{
-            Debug.Log("-");
+            if(raycastHit.transform.TryGetComponent(out ClearCounter clearcounter))
+            {
+                // Clear counter available
+			}
 		}
 	}
 
