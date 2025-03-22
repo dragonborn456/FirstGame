@@ -210,7 +210,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.5847103, y: 0.000000019740359, z: -0.0000000142280445, w: 0.8112422}
+  m_LocalRotation: {x: 0.5847103, y: -0.000000019740355, z: 0.000000014228043, w: 0.8112422}
   m_LocalPosition: {x: 0, y: 30, z: -10}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
@@ -526,7 +526,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217402893}
-  m_LocalRotation: {x: 0.5847103, y: 0.000000019740359, z: -0.0000000142280445, w: 0.8112422}
+  m_LocalRotation: {x: 0.5847103, y: -0.000000019740355, z: 0.000000014228043, w: 0.8112422}
   m_LocalPosition: {x: 0, y: 30, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -871,6 +871,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2094554444714754684, guid: e1e948f4e2d5e6242acd0c0eaa61804b,
+        type: 3}
+      propertyPath: tomatoPrefab
+      value: 
+      objectReference: {fileID: 8601396922043091015, guid: 601c939cc722cd7439573c68fdf24a84,
+        type: 3}
+    - target: {fileID: -2094554444714754684, guid: e1e948f4e2d5e6242acd0c0eaa61804b,
+        type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: f8ac79de4bce6c94c85a71cdf4560bd6,
+        type: 2}
+    - target: {fileID: 3617826329365257420, guid: e1e948f4e2d5e6242acd0c0eaa61804b,
+        type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: f8ac79de4bce6c94c85a71cdf4560bd6,
+        type: 2}
     - target: {fileID: 5978102940640732985, guid: e1e948f4e2d5e6242acd0c0eaa61804b,
         type: 3}
       propertyPath: m_Name
@@ -1044,6 +1062,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3617826329365257420, guid: e1e948f4e2d5e6242acd0c0eaa61804b,
+        type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 35d6ddca96c12934db52ea9edebcdfe7,
+        type: 2}
     - target: {fileID: 5978102940640732985, guid: e1e948f4e2d5e6242acd0c0eaa61804b,
         type: 3}
       propertyPath: m_Name
